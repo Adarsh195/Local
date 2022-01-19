@@ -1,0 +1,40 @@
+import java.util.Scanner;
+import java.math.MathContext;
+
+class binary {
+    int a;
+    int x = a;
+    int s = 0, o = 0;
+
+    public int fun(int x) {
+        int r = x % 2;
+
+        if (x != 0) {
+            fun(x / 2);
+            s = s * 10 + r;
+            o++;
+
+        }
+        return s;
+    }
+}
+
+class B {
+    public static void main(String[] args) {
+        Scanner ip = new Scanner(System.in);
+        binary n1 = new binary();
+
+        System.out.print("Scanf:");
+        n1.a = ip.nextInt();
+        int q = n1.fun(Math.abs(n1.a));
+        int O = 8 - n1.o;
+        if (n1.a < 0) {
+            System.out.print("1");
+            O--;
+        }
+        while (O-- != 0)
+            System.out.print("0");
+        System.out.println(q);
+
+    }
+}
